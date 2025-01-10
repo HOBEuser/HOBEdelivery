@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer request List</title>
+</head>
+<body>
+  <h1>Received Data:</h1>
+  <p id="receivedData"></p>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const storedData = localStorage.getItem('inputData');
+      document.getElementById('receivedData').innerText = storedData ? storedData : 'No data available';
+    });
+  </script>
+</body>
+</html>
