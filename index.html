@@ -14,4 +14,18 @@ lang: en
       
     </style>
   </head>
+  <body>
+  <form id="inputForm">
+    <input type="text" id="inputData" placeholder="Type product, company and where to deliver it to here. example:(wooden Y, Elliots world of wood, 2173 Derby CT, Southlake Texas ">
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    document.getElementById('inputForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const inputData = document.getElementById('inputData').value;
+      localStorage.setItem('inputData', inputData);
+      alert('Data submitted successfully!');
+    });
+  </script>
+</body>
 </html>
