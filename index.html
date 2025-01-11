@@ -14,12 +14,12 @@
     </style>
   </head>
   <body>
-  <div class input1>
   <form id="inputForm">
-    <input type="text" id="inputData" placeholder="Type product, company and where to deliver it to here. example:(wooden Y, Elliots world of wood, 2173 Derby CT, Southlake Texas ">
+    <input type="text" id="inputData" placeholder="Type product, company and where to deliver it to here.">
     <button type="submit">Submit</button>
   </form>
   <script>
+    setPosition("inputData", 0, 0, 100, 100);
     document.getElementById('inputForm').addEventListener('submit', function(event) {
       event.preventDefault();
       const inputData = document.getElementById('inputData').value;
