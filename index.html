@@ -15,11 +15,10 @@
   </head>
   <body>
   <form id="inputForm">
-    <input type="text" id="inputData" placeholder="Type product, company and where to deliver it to here.">
-    <button type="submit">Submit</button>
+    <input type="text" id="inputData" style= "placeholder="Type product, company and where to deliver it to here.">
+    <button type="submit">Submit</button>"margin: auto";
   </form>
   <script>
-    setPosition("inputData", 806, 549);
     document.getElementById('inputForm').addEventListener('submit', function(event) {
       event.preventDefault();
       const inputData = document.getElementById('inputData').value;
