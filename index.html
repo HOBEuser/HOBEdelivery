@@ -10,24 +10,53 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      width: 50%;
+      margin: 0 auto;
     }
     .input-container input,
     .input-container button {
-      float: left;
-      margin: 5px;
+      width: 100%;
+      margin: 10px 0;
     }
     .example-text {
       text-align: center;
-      margin-top: 10px;
       font-style: italic;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
   <form id="inputForm" class="input-container">
+    <div class="example-text">Example: Elliots world of wood, Wood Y, 2713 Derby CT, Southlake Texas.</div>
     <input type="text" id="inputData" placeholder="Type product, company and where to deliver it to here.">
     <button type="submit">Submit</button>
-    <div class="example-text">Example: Elliots world of wood, Wood Y, 2713 Derby CT, Southlake Texas.</div>
   </form>
   <script>
     document.getElementById('inputForm').addEventListener('submit', function(event) {
