@@ -9,6 +9,9 @@
   <h1>Received Data:</h1>
   <ul id="receivedData"></ul>
   <script>
+    // Set sample data in localStorage
+    localStorage.setItem('inputData', JSON.stringify(['Item 1', 'Item 2', 'Item 3']));
+
     document.addEventListener('DOMContentLoaded', function() {
       const storedData = localStorage.getItem('inputData');
       const receivedDataElement = document.getElementById('receivedData');
