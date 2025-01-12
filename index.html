@@ -62,7 +62,10 @@
     document.getElementById('inputForm').addEventListener('submit', function(event) {
       event.preventDefault();
       const inputData = document.getElementById('inputData').value;
-      localStorage.setItem('inputData', inputData);
+      let storedData = localStorage.getItem('inputData');
+      let dataArray = storedData ? JSON.parse(storedData) : [];
+      dataArray.push(inputData);
+      localStorage.setItem('inputData', JSON.stringify(dataArray));
       alert('Data submitted successfully!');
     });
   </script>
