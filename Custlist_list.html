@@ -3,67 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CompInstDelivery</title>
+  <title>Customer Request List</title>
   <style>
-    .input-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      width: 50%;
-      margin: 0 auto;
-    }
-    .input-container input,
-    .input-container button {
-      width: 100%;
-      margin: 10px 0;
-    }
-    .example-text {
-      text-align: center;
-      font-style: italic;
-      color: #555;
-      margin-bottom: 10px;
-    }
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
-    }
-    form {
-      background-color: #fff;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
+    h1 {
+      text-align: center;
+    }
+    .received-data-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      width: 50%;
+      margin: 0 auto;
+    }
+    li {
+      background-color: #fff;
+      margin: 10px 0;
       padding: 10px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    button:hover {
-      background-color: #45a049;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
-  <form id="inputForm" class="input-container">
-    <div class="example-text">Example: Elliots world of wood, Wood Y, 2713 Derby CT, Southlake Texas.</div>
-    <input type="text" id="inputData" placeholder="Type product, company and where to deliver it to here.">
-    <button type="submit">Submit</button>
-  </form>
+  <h1>Received Data:</h1>
+  <div class="received-data-container">
+    <ul id="receivedData"></ul>
+  </div>
   <script>
-    document.getElementById('inputForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const inputData = document.getElementById('inputData').value;
-      localStorage.setItem('inputData', inputData);
-      alert('Data submitted successfully!');
+    // Set sample data in localStorage
+    localStorage.setItem('inputData', JSON.stringify(['Item 1', 'Item 2', 'Item 3']));
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const storedData = localStorage.getItem('inputData');
+      const receivedDataElement = document.getElementById('receivedData');
+      if (storedData) {
+        const dataArray = JSON.parse(storedData);
+        dataArray.forEach(item => {
+          const listItem = document.createElement('li');
+          listItem.textContent = item;
+          receivedDataElement.appendChild(listItem);
+        });
+      } else {
+        receivedDataElement.innerHTML = '<li>No data available</li>';
+      }
     });
   </script>
 </body>
