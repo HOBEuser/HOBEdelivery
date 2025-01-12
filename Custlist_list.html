@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer request List</title>
+  <title>Customer Request List</title>
 </head>
 <body>
   <h1>Received Data:</h1>
-  <p id="receivedData"></p>
+  <ul id="receivedData"></ul>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const storedData = localStorage.getItem('inputData');
-      document.getElementById('receivedData').innerText = storedData ? storedData : 'No data available';
+      const receivedDataElement = document.getElementById('receivedData');
+      if (storedData) {
+        const dataArray = JSON.parse(storedData);
+        dataArray.forEach(item => {
+          const listItem = document.createElement('li');
+          listItem.textContent = item;
+          receivedDataElement.appendChild(listItem);
+        });
+      } else {
+        receivedDataElement.innerHTML = '<li>No data available</li>';
+      }
     });
   </script>
 </body>
